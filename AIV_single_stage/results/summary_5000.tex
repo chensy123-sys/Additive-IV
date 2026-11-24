@@ -1,0 +1,36 @@
+% n = 5000; repetitions = 500; alpha = 0.000.
+% Robust summaries: Bias = abs(median(est_aug) - truth); SE = median(sd_aug).
+% SD = IQR(est_aug)/(qnorm(.75)-qnorm(.25)); CR uses all repetitions.
+% Truth = 0 for Treated, Control and ATE; absolute Bias is reported.
+% Requires booktabs and multirow; Y1/Y2/A1/A2 labels resolve in main.tex.
+\begin{tabular}{cc| ccc |ccc}
+\toprule
+\multirow{2}{*}{DGP}&\multirow{2}{*}{Metric}&
+\multicolumn{3}{c}{Adaptive weight}&\multicolumn{3}{|c}{Prespecified ($\pi(Z,L)=Z$)}\\
+&& Treated & Control & ATE & Treated & Control & ATE\\
+\midrule
+\multirow{4}{*}{\ref{Y1}, \ref{A1}}
+&Bias &.0018 &.0032 &.0048 &.0080 &.0047 &.0138 \\
+&SE &.0391 &.0398 &.0611 &.0649 &.0778 &.1057 \\
+&SD &.0396 &.0388 &.0611 &.0652 &.0745 &.1022 \\
+&CR &.946 &.960 &.944 &.946 &.954 &.944 \\
+[5pt]
+\multirow{4}{*}{\ref{Y2}, \ref{A1}}
+&Bias &.0029 &.0021 &.0000 &.0126 &.0008 &.0151 \\
+&SE &.0726 &.0470 &.0865 &.1253 &.0917 &.1551 \\
+&SD &.0740 &.0486 &.0873 &.1260 &.0944 &.1569 \\
+&CR &.948 &.938 &.956 &.954 &.942 &.944 \\
+[5pt]
+\multirow{4}{*}{\ref{Y1}, \ref{A2}}
+&Bias &.2059 &.2032 &.0029 &.1864 &.1828 &.0035 \\
+&SE &.0378 &.0451 &.0629 &.0384 &.0447 &.0633 \\
+&SD &.0375 &.0449 &.0613 &.0383 &.0442 &.0620 \\
+&CR &.002 &.002 &.954 &.004 &.012 &.952 \\
+[5pt]
+\multirow{4}{*}{\ref{Y2}, \ref{A2}}
+&Bias &.3955 &.1536 &.2418 &.3555 &.1491 &.2064 \\
+&SE &.0714 &.0505 &.0876 &.0730 &.0504 &.0889 \\
+&SD &.0718 &.0516 &.0884 &.0739 &.0500 &.0881 \\
+&CR &.002 &.130 &.240 &.004 &.140 &.358 \\
+\bottomrule
+\end{tabular}
